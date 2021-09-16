@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>EleOnora</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:href="@{/css/payment.css}" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	
+	<style type="text/css">
+	
+	body {
+  	background-color: #CFA3A3;
+	}
+	.container1{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100vh;
+			animation: animate 16s ease-in-out infinite;
+			background-size: cover;
+		}
+
+		.outer{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100vh;
+			background: rgb(255, 255, 255,0.2);
+		}
+
+		@keyframes animate{
+			0%,100%{
+				background-image: url('images/1.jpg');
+			}
+			15%{
+				background-image: url('images/2.jpg');
+			}
+			30%{
+				background-image: url('images/3.jpg');
+			}
+			45%{
+				background-image: url('images/4.jpg');
+			}
+			60%{
+				background-image: url('images/5.jpg');
+			}
+			75%{
+				background-image: url('images/6.jpg');
+			}
+			90%{
+				background-image: url('images/7.jpg');
+			}
+}
+
+section {
+  height: 50px;
+  transition-duration: 0.4s;
+  cursor: default;
+  color:black;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+section:hover{
+	background-color: white;
+	height:100px;
+	position: absolute;
+	top: 0;
+	width:100%; 
+	color:black;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* NAVIGATION */
+nav {
+  width: 100%;
+  margin-top:0px;
+  background: rgb(3, 0, 0,0.0);
+  padding-right: 10px;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li .a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 1px;
+  color:black;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+nav ul li .a,
+nav ul li .a:after,
+nav ul li .a:before {
+  transition: all .5s;
+}
+nav ul li .a:after {
+	color: black;
+}
+nav ul li .a:hover {
+  color: gray;
+}
+
+/* stroke */
+nav.stroke ul li .a,
+nav.fill ul li .a {
+  position: relative;
+}
+nav.stroke ul li .a:after,
+nav.fill ul li .a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke ul li .a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li .a {
+  transition: all 2s;
+}
+
+nav.fill ul li .a:after {
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li .a:hover {
+  color: #fff;
+  z-index: 1;
+}
+nav.fill ul li .a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
+
+
+
+
+
+/* Keyframes */
+@-webkit-keyframes fill {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #333;
+  }
+}
+		@font-face {
+		  font-family: 'RockSalt-Regular';
+		  src: url('fonts/RockSalt-Regular.ttf');
+		}
+		
+		@font-face {
+		  font-family:'Paprika-Regular';
+		  src: url('fonts/Paprika-Regular.ttf');
+		}
+		
+		.button1 {
+  display: inline-block;
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0,0.8);
+  border: 0px solid black;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  padding: 8px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 600;
+  
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+		.button2 {
+  display: inline-block;
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0,0.8);
+  border: 0px solid black;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  padding: 8px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 600;
+  
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button2 span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.button2:hover span {
+  padding-left: 25px;
+}
+
+.button2:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.icon{
+	color:black;
+}
+
+.icon:hover{
+	color:gray;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #818181;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.2);
+  color: black;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: white;
+}
+
+.el{
+	padding-left: 170px;
+}	
+
+.footer-clean {
+  padding:50px 0;
+  background-color:#282d32;
+  color:#f0f9ff;
+}		
+	
+
+div.gallery img {
+  width: 200px;
+  height: 250px;
+}
+
+div.desc {
+  padding: 15px;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-clean ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-clean ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean ul a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+
+div.gallery {
+  border: 3px solid #FFFFFF;
+  margin-bottom:15px;
+}
+
+div.gallery:hover {
+  border: 3px solid #777;
+  padding:10px;
+  margin-bottom:-20px;
+}
+div.gallery img {
+  width: 100%;
+  height: 500px;
+}
+.font {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+<div class="container1">
+		<div class="outer">
+			<div class="details">
+					<section >
+					<p style="font-size: 45px;position:absolute;top:-10px;font-family:'RockSalt-Regular'" class="e">E</p><p style="position:absolute;top: -10px;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);font-size: 45px; font-family:verdana" class="le">leOnara</p>
+<h3 class="grab" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);position:absolute;top:65px;">GRAB YOUR CHOICE ...</h3>
+  <a class="icon" href="/login"><i class="fas fa-sign-in-alt" style="position:absolute;right:120px;top:30px;font-size:26px;"></i></a>
+  <a class="icon" href="#"><i class="fas fa-shopping-cart" style="position:absolute;right:80px;top:30px;font-size:26px;"></i></a>
+  <div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
+  <a href="">Admin Login</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+ <button class="openbtn" onclick="openNav()" ><i class="fas fa-bars" style="position:absolute;right:30px;top:30px;font-size:26px;"></i></button>
+  <nav class="stroke">
+  	
+    <ul style="position:absolute;top:20px;left:400px">
+      <li><a class="a" href="#">Home</a></li>
+      <li><a class="a" href="#">About</a></li>
+      <li><a class="a" href="/contactus">Contact Us</a></li>
+      <li><a class="a" href="/newp">Payment</a></li>
+      <li><a class="a" href="/indexfeedback">More</a></li>
+    </ul>
+  </nav>
+</section>
+
+
+
+			</div>
+		</div>
+	</div>
+<div class="el">
+
+</div>
+<br><br><br><br><br><br><br>
+<h1 class="text-center" >WOMEN FASHION</h1>
+<h2 class="text-center" >Shop Products</h2>
+
+<br><br>
+
+
+        <tbody th:with="count=0">
+        	<tr th:each = "product, hh : ${display}"> 
+        		<div class="responsive">
+  					<div class="gallery">
+        				<div class="font">
+            			<td><img th:src="@{${'/image/display/'+ product.id}}" class="card img-fluid" alt=""/></td>
+                		<td th:text="${product.name}"></td><br>
+                		<td th:text="${product.description}"></td><br>
+                		<td th:text="${product.price}"></td><br>
+                		<td th:text="${product.quantity}"></td><br>
+               			<td><a th:href="@{/image/imageDetails(id=${product.id})}" class="btn btn-info text-right" target="_blank">View</a></td><br><br>
+               			</div>
+               		</div>
+                 
+				</div>
+            </tr>
+        </tbody><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        
+        
+       
+   
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginRight = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginRight= "0";
+}
+</script>
+
+
+ <!-- Footer -->
+	<div class="footer-clean">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Delivery Service</a></li>
+                            <li><a href="#">Sale Dresses</a></li>
+                            <li><a href="#">About us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Eleonora Company</a></li>
+                            <li><a href="#">Feedback</a></li>
+                            <li><a href="#">Contact us </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>Careers</h3>
+                        <ul>
+                            
+                            <li><a href="#">Our Showrooms</a></li>
+                            <li><a href="#">Benefits</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-lg-3 item social"><a href="http://www.facebook.com/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/"><i class="icon ion-social-twitter"></i></a><a href="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fwelcome"><i class="icon ion-social-snapchat"></i></a><a href="https://www.instagram.com/"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">© All right Reversed.</b><a class="text-green ml-2" href="#" target="_blank">2021 EleOnora</a></p>
+                    </div></div></div></footer></div>
+    			 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   				 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<!-- ./Footer -->
+	
+	
+</body>
+</html>
