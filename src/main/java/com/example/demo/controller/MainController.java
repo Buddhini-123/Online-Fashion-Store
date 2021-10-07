@@ -12,20 +12,21 @@ import com.example.demo.model.Product;
 
 @Controller
 public class MainController {
-	
+/*home page*/	
 	@RequestMapping("/")
 	public ModelAndView home() {
 	    ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.setViewName("home");
 	    return modelAndView;
 	}
+	/*admin*/
 	@RequestMapping("/admindash")
 	public ModelAndView admindash() {
 	    ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.setViewName("admindash");
 	    return modelAndView;
 	}
-	
+	/*login*/
 	@GetMapping("/login")
 	public String login() {
 		return "login";
