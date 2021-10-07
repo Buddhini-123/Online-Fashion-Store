@@ -6,10 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Feedback;
 
-@Repository
-public interface FeedbackRepository extends JpaRepository<Feedback, Long>{
-
-}
+/* feedback repository*/
 
 
 
