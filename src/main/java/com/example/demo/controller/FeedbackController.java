@@ -57,19 +57,19 @@ public class FeedbackController {
         System.out.print("Get / ");	
         return "indexfeedback";
     }
-
+/*Add a new feedback*/
     @GetMapping("/new")
     public String add(Model model) {
         model.addAttribute("Feedback", new Feedback());
         return "new";
     }
-
+/*save*/
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("User") Feedback us) {
         service.save(us);
         return "redirect:/";
     }
-
+/*update*/
     @RequestMapping("/edit/{id}")
     public String showEditUserPage(@PathVariable(name = "id") int id,Model model) {
        
@@ -78,12 +78,13 @@ public class FeedbackController {
         return "new";
         
     }
+	/*delete*/
     @RequestMapping("/delete/{id}")
     public String deleteUserPage(@PathVariable(name = "id") int id) {
         service.delete(id);
         return "redirect:/indexfeedback";
     }
-    
+    /*thanku page*/
     @GetMapping("/Thankufd")
     public String thank() {
         return "Thankufd";
@@ -96,13 +97,13 @@ public class FeedbackController {
 
    
     
-    
+  /*contact us*/  
    
     @GetMapping("/contactus")
     public String contact() {
         return "contactus";
     }
-    
+  /*pdf generter*/  
    @GetMapping("/export")
 	public ResponseEntity<Resource> generateExcelReport() throws IOException, DocumentException {
 		List<User> users = service.listAll(null);
