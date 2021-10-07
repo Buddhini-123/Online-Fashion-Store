@@ -62,7 +62,7 @@ public class EmployeeController {
 		
 		// call delete employee method 
 		this.employeeService.deleteEmployeeById(id);
-		return "redirect:/";
+		return "redirect:/viewe";
 	}
 	
 	

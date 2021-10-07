@@ -114,6 +114,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -128,8 +129,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.model.Employee;
+import com.example.demo.model.Payment;
 import com.example.demo.model.Product;
 import com.example.demo.service.ProductService;
+
+import org.springframework.data.domain.Page;
+
 
 
 @Controller
@@ -238,13 +244,14 @@ public class ProductController {
 	}
 
 	@GetMapping("/image/show")
-	String show(Model map) {
-		List<Product> images = productService.getAllActiveImages();
+	public String show(Model map,  @Param("keywordp") String keywordp) {
+		List<Product> images = productService.getAllActiveImages(keywordp);
 		map.addAttribute("images", images);
+		map.addAttribute("keywordp", keywordp);
 		return "images";
 	}
 	@GetMapping("/image/display")
-	String display(Model map) {
+	public String display(Model map) {
 		List<Product> display = productService.getAllActiveDisplay();
 		map.addAttribute("display", display);
 		return "display";
@@ -262,14 +269,12 @@ public class ProductController {
 		model.addAttribute("product", product);
 		return "update_product";
 	}
-	
-	
-		
-		@RequestMapping("/deleteProduct/{id}")
+	@RequestMapping("/deleteProduct/{id}")
 		public String deleteProduct(@PathVariable(value = "id") long id) {
 			productService.deleteProduct(id);
-		    return "redirect:/";       
+		    return "redirect:/image/show";       
 		}
+	
 		
 }	
 

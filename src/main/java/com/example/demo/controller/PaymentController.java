@@ -45,7 +45,7 @@ public class PaymentController {
 	public String savePayment(@ModelAttribute("payment") Payment payment) {
 	    service.save(payment);
 	     
-	    return "redirect:/editp/{pid}";
+	    return "redirect:/";
 	}
 	
 	@RequestMapping("/editp/{pid}")

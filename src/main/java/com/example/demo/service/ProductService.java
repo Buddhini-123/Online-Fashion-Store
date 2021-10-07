@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
+import java.awt.print.Pageable;
 
-/*import java.util.List;
+/*
+import java.util.List;
 
 
 
@@ -20,7 +22,7 @@ public interface ProductService {
 	void deleteProductById(long id);
 	Page<Product> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
 	
-}*/
+} */
 
 
 
@@ -33,7 +35,10 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Product;
 import com.example.demo.repository.ProductRepository;
 
+import net.bytebuddy.asm.Advice.OffsetMapping.Sort;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 @Service
 public class ProductService {
@@ -41,12 +46,15 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	
+	//save new product
 	public void saveImage(Product product) {
 		productRepository.save(product);	
 	}
-
-	public List<Product> getAllActiveImages() {
+	//return products
+	public List<Product> getAllActiveImages(String keywordp) {
+		if (keywordp != null) {
+            return productRepository.search(keywordp);
+        }
 		return productRepository.findAll();
 	}
 	
@@ -57,17 +65,16 @@ public class ProductService {
 	public Optional<Product> getImageById(Long id) {
 		return productRepository.findById(id);
 	}
-	
+	//get by id
 	public Product getProductById(long id) {
 		return null;
 	}
 	public void deleteProduct(long id) {
 		productRepository.deleteById(id);
     }
-    
 	
 	
-}
+}  
 
 	
 	

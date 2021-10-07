@@ -1,6 +1,6 @@
 package com.example.demo.service;
-
-/*import java.util.List;
+/*
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +54,5 @@ public class ProductServiceImpl implements ProductService {
 		Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
 		return this.productRepository.findAll(pageable);
 	}
-}
-*/
+} */
+
