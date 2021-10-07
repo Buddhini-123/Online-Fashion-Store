@@ -29,5 +29,24 @@ public class Feedback {
 			this.feedback = feedback;
 			this.helpfull = helpfull;
 		}
+	public Long getId() {
+			return id;
+		}
+		public void setId(Long id) {
+			this.id = id;
+		}
+		public String getFeedback() {
+			return feedback;
+		}
+		public void setFeedback(String feedback) {
+			this.feedback = feedback;
+		}
+		public String getHelpfull() {
+			return helpfull;
+		}
+		public void setHelpfull(String helpfull) {
+			this.helpfull = helpfull;
+		}
+	 	
 
 }
