@@ -103,7 +103,60 @@ public class FeedbackController {
         return "contactus";
     }
     
-   
+   @GetMapping("/export")
+	public ResponseEntity<Resource> generateExcelReport() throws IOException, DocumentException {
+		List<User> users = service.listAll(null);
+
+		Document document = new Document(PageSize.A4, 25, 25, 25, 25);
+
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+		PdfWriter.getInstance(document, os);
+
+		document.open();
+
+		Paragraph title = new Paragraph("  Eleonora Online Fashionstore Feedbacks ",
+				FontFactory.getFont(FontFactory.HELVETICA, 25, Font.BOLD, new BaseColor(0, 255, 0)));
+
+		document.add(title);
+
+		PdfPTable table = new PdfPTable(3);
+		table.setSpacingBefore(25);
+		table.setSpacingAfter(25);
+
+		PdfPCell c1 = new PdfPCell(new Phrase("User ID"));
+		table.addCell(c1);
+
+		PdfPCell c2 = new PdfPCell(new Phrase("Feedback"));
+		table.addCell(c2);
+
+		PdfPCell c3 = new PdfPCell(new Phrase("Helpfull"));
+		table.addCell(c3);
+
+
+		for (User user : users) {
+			table.addCell(String.valueOf(user.getId()));
+			table.addCell(user.getFeedback());
+			table.addCell(String.valueOf(user.getHelpfull()));
+			
+		}
+
+		document.add(table);
+		
+		document.close();
+
+		ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.parseMediaType("application/pdf"));
+		headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+		headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=Eleonora Online Fashionstore.pdf");
+
+		ResponseEntity<Resource> response = new ResponseEntity<Resource>(new InputStreamResource(is), headers,
+				HttpStatus.OK);
+
+		return response;
+	}
    
     
 }
