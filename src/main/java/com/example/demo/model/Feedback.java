@@ -11,5 +11,23 @@ import javax.persistence.Id;
 public class Feedback {
 	
 //feedback main java file
+	@Id
+	    @GeneratedValue(strategy= GenerationType.IDENTITY)
+	    @Column(name="u_id")
+	    private Long id;
+		
+	    private String feedback;
+
+	    private String helpfull;
+		public User() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+		public User(Long id, String feedback, String helpfull) {
+			super();
+			this.id = id;
+			this.feedback = feedback;
+			this.helpfull = helpfull;
+		}
 
 }
