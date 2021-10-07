@@ -50,9 +50,10 @@ public class FeedbackController {
     private FeedbackService service;
 
     @GetMapping("/indexfeedback")
-    public String viewHomePage(Model model) {
-        List<Feedback> listuser = service.listAll();
+    public String viewHomePage(Model model @Param("keyword") Long keyword) {
+        List<Feedback> listuser = service.listAll(keyword);
         model.addAttribute("listuser", listuser);
+        model.addAttribute("keyword", keyword);
         System.out.print("Get / ");	
         return "indexfeedback";
     }
