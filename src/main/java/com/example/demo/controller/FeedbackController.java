@@ -106,7 +106,7 @@ public class FeedbackController {
    
     @GetMapping("/export")
 	public ResponseEntity<Resource> generateExcelReport() throws IOException, DocumentException {
-		List<Feedback> feedbacks = service.listAll();
+		List<Feedback> feedbacks = service.listAll(null);
 
 		Document document = new Document(PageSize.A4, 25, 25, 25, 25);
 
