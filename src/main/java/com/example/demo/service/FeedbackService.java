@@ -19,7 +19,11 @@ public class FeedbackService {
 	@Autowired
 	private FeedbackRepository Repo;
 	
-	public List<Feedback>listAll(){
+	public List<Feedback>listAll(Long keyword){
+		if (keyword != null) {
+			return Repo.findAll(keyword);
+    	
+		}
 		return Repo.findAll();
 	}
 	
