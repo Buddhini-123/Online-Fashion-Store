@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -106,6 +107,7 @@ public class ProductController {
 		}
 	}
 	
+	
 	@GetMapping("/image/display/{id}")
 	@ResponseBody
 	void showImage(@PathVariable("id") Long id, HttpServletResponse response, Optional<Product> product)
@@ -156,13 +158,11 @@ public class ProductController {
 		return "display";
 	}
 	
-	
-	
 	@GetMapping("/showFormForUpdate/{id}")
-	public String showFormForUpdate(@PathVariable ( value = "id") long id, Model model) {
+	public String showFormForUpdate(@PathVariable ( value = "id") long id,Optional<Product> product, Model model) {
 		
 		// get employee from the service
-		Product product = productService.getProductById(id);
+		 product = productService.getImageById(id);
 		
 		// set employee as a model attribute to pre-populate the form
 		model.addAttribute("product", product);
