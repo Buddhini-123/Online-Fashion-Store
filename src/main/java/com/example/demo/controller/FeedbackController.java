@@ -50,14 +50,14 @@ public class FeedbackController {
     private FeedbackService service;
 
     @GetMapping("/indexfeedback")
-    public String viewHomePage(Model model @Param("keyword") Long keyword) {
+    public String viewHomePage(Model model, @Param("keyword") Long keyword) {
         List<Feedback> listuser = service.listAll(keyword);
         model.addAttribute("listuser", listuser);
         model.addAttribute("keyword", keyword);
         System.out.print("Get / ");	
         return "indexfeedback";
     }
-/*Add a new feedback*/
+/*new feedback create*/
     @GetMapping("/new")
     public String add(Model model) {
         model.addAttribute("Feedback", new Feedback());
@@ -84,7 +84,7 @@ public class FeedbackController {
         service.delete(id);
         return "redirect:/indexfeedback";
     }
-    /*thanku page*/
+    
     @GetMapping("/Thankufd")
     public String thank() {
         return "Thankufd";
@@ -97,16 +97,17 @@ public class FeedbackController {
 
    
     
-  /*contact us*/  
+    
    
     @GetMapping("/contactus")
     public String contact() {
         return "contactus";
     }
-  /*pdf generter*/  
-   @GetMapping("/export")
+    
+ /*pdf generator*/  
+    @GetMapping("/export")
 	public ResponseEntity<Resource> generateExcelReport() throws IOException, DocumentException {
-		List<User> users = service.listAll(null);
+		List<Feedback> feedbacks = service.listAll(null);
 
 		Document document = new Document(PageSize.A4, 25, 25, 25, 25);
 
@@ -135,10 +136,10 @@ public class FeedbackController {
 		table.addCell(c3);
 
 
-		for (User user : users) {
-			table.addCell(String.valueOf(user.getId()));
-			table.addCell(user.getFeedback());
-			table.addCell(String.valueOf(user.getHelpfull()));
+		for (Feedback feedback : feedbacks) {
+			table.addCell(String.valueOf(feedback.getId()));
+			table.addCell(feedback.getFeedback());
+			table.addCell(String.valueOf(feedback.getHelpfull()));
 			
 		}
 
