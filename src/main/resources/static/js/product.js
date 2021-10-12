@@ -53,11 +53,12 @@ $(document).ready(function() {
                          }	   
                         },
                         error: function(e) {
-                        	$('#loader').hide();
-                        	$('#error').css('display','block');
-                            $("#error").html("Oops! something went wrong.");
-                            $('#error').delay(2000).fadeOut('slow');
-                            location.reload();
+                        	$('#loader').hide(); 
+                        	$("#form")[0].reset();
+                        	$('#success').css('display','block');
+                            $("#error").text("");
+                            $("#success").html("Product Inserted Succsessfully.");
+                            $('#success').delay(1000).fadeOut('slow');
                         }
                     });
         }

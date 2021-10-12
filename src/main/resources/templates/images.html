@@ -7,122 +7,288 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <!--<link rel="stylesheet" href="/css/style.css">-->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
-  
   <style>
+  @import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body, html {
+	font-family: 'Lato', sans-serif;
+	font-size: 15px;
+	height: 100%;
+	position: relative;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+a {
+	color: #fff;
+	text-decoration: none; 
+}
+
+.nav-btn {
+	width: 100%;
+	height: 35px;
+	padding-top: 4px;
+	color: #D5D3D3;
+	background-color: #212121;			 ;
+	text-align: center;
+	cursor: pointer;
+	display: none;
+}
+.nav-btn:active {
+	background-color: #090909; 
+}
+
+header {
+	height: 50px;
+	width: 100%;
+	background-color: #274C6B;
+	display: none;
+}
+
+header .logo {
+	opacity: 0.9;
+	font-size: 120%;
+	padding-top: 9px;
+	padding-left: 8px;
+	color: #fff;
+}
+header .logo span {
+	font-weight: 300;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.sidebar {
+	width: 250px;
+	background-color: #302F2F;
+	position: fixed;
+	top: 0px;
+	left: 0;
+	bottom: 0;
+	box-shadow: 1px 0px 10px #777;
+}
+
+.sidebar nav > a {
+	font-size: 150%;
+	display: inline-block;
+	padding: 30px 0px;
+	padding-left: 30px;
+	opacity: 0.7;
+	transition: all 0.2s;
+}
+.sidebar nav > a:hover {
+	opacity: 1;
+}
+
+.sidebar nav a span {
+	font-weight: 300;
+}
+
+.sidebar nav ul {
+	list-style: none;
+}
+
+.sidebar nav ul li {
+	font-size: 70%;
+	padding: 19px 0;	
+	padding-left: 20px;
+	border-bottom: 0.5px solid #111;
+}
+
+.sidebar nav ul li:nth-child(1):hover {
+	background-color: #e67e22;
+}
+
+.sidebar nav ul li:nth-child(1).active {
+	background-color: #e67e22;
+}
+
+.sidebar nav ul li:nth-child(2):hover {
+	background-color: #2980b9;
+}
+
+.sidebar nav ul li:nth-child(2).active {
+	background-color: #2980b9;
+}
+
+.sidebar nav ul li:nth-child(3):hover {
+	background-color: #16a085;
+}
+
+.sidebar nav ul li:nth-child(3).active {
+	background-color: #16a085;
+}
+
+.sidebar nav ul li:nth-child(4):hover {
+	background-color: #8e44ad;
+}
+
+.sidebar nav ul li:nth-child(4).active {
+	background-color: #8e44ad;
+}
+
+.sidebar nav ul li:nth-child(5):hover {
+	background-color: #f1c40f;
+}
+
+.sidebar nav ul li:nth-child(5).active {
+	background-color: #f1c40f;
+}
+
+
+.sidebar nav ul li a {
+	color: #D7D5D5;
+}
+
+.sidebar nav ul li:hover a{
+	color: #fff;
+}
+
+.main-content {
+	background-color: #fafafa;
+	width: calc(100% - 250px);
+	height: 100%;
+	margin-left: 250px;
+	padding: 20px 30px;
+}
+.main-content .panel-wrapper {
+	margin: 20px 0;
+	box-shadow: 0px 1px 5px #777;
+}
+
+.main-content .panel-wrapper .panel-head {
+	background-color: #00A5F2;
+	color: #fff;
+	padding: 10px 10px;
+	border: 1px solid #00A5F2;
+}
+.main-content .panel-wrapper .panel-body {
+	padding: 20px 10px;
+	font-size: 80%;
+}
+
+@media only screen and (max-width: 420px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+	</style>
+		<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$('.nav-btn').on('click', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			$('.sidebar').slideToggle('fast');
+
+			window.onresize = function(){
+				if ($(window).width() >= 768) {
+					$('.sidebar').show();
+				} else {
+					$('.sidebar').hide();
+				}
+			};
+		});
+	});
+	
+	</script>
   
-body {background-color: #E0EDF9;}
 
-.el{
-	padding-left: 170px;
-}
-
-.footer-clean {
-  padding:50px 0;
-  background-color:#282d32;
-  color:#f0f9ff;
-}
-
-.footer-clean h3 {
-  margin-top:0;
-  margin-bottom:12px;
-  font-weight:bold;
-  font-size:16px;
-}
-
-.footer-clean ul {
-  padding:0;
-  list-style:none;
-  line-height:1.6;
-  font-size:14px;
-  margin-bottom:0;
-}
-
-.footer-clean ul a {
-  color:inherit;
-  text-decoration:none;
-  opacity:0.8;
-}
-
-.footer-clean ul a:hover {
-  opacity:1;
-}
-
-.footer-clean .item.social {
-  text-align:right;
-}
-
-@media (max-width:767px) {
-  .footer-clean .item {
-    text-align:center;
-    padding-bottom:20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-clean .item.social {
-    text-align:center;
-  }
-}
-
-.footer-clean .item.social > a {
-  font-size:24px;
-  width:40px;
-  height:40px;
-  line-height:40px;
-  display:inline-block;
-  text-align:center;
-  border-radius:50%;
-  border:1px solid #ccc;
-  margin-left:10px;
-  margin-top:22px;
-  color:inherit;
-  opacity:0.75;
-}
-
-.footer-clean .item.social > a:hover {
-  opacity:0.9;
-}
-
-@media (max-width:991px) {
-  .footer-clean .item.social > a {
-    margin-top:40px;
-  }
-}
-
-@media (max-width:767px) {
-  .footer-clean .item.social > a {
-    margin-top:10px;
-  }
-}
-
-.footer-clean .copyright {
-  margin-top:14px;
-  margin-bottom:0;
-  font-size:13px;
-  opacity:0.6;
-}	
-  
-  </style>
 </head>
 <body>
+<header>
+		<div class="logo">Ele<span>Onora</span></div>
+	</header>
+	<div class="nav-btn">Menu</div>
+	<div class="container">
+		
+		<div class="sidebar">
+			<nav>
+				<a href="#">Ele<span>Onora</span></a>
+				<ul>
+					<li><a href="/image/show">Item Management</a></li>
+					<li><a href="/viewe">Staff Management</a></li>
+					<li><a href="/viewo">Order Management</a></li>
+					<li><a href="">Cart Management</a></li>
+					<li><a href="/viewp">Payment Management</a></li>
+					<li><a href="/indexfeedback">Feedback Management</a></li>
+					
+				</ul>
+			</nav>
+		</div>
 
-<div class="el">
-<img src="/images/eleonara2.png" width="170" height="100">
-</div>
+
+<div class="main-content">
+		
+	
 <h1 class="text-center">Ladies Product Items
-<a href="/home" class="btn btn-danger text-right">Go Home</a>
+<a href="/" class="btn btn-danger text-right">Go Home</a>
+<a href="/generateproduct" class="btn btn-success">Export Product List</a>
 
 </h1>
-<br><br>
 
-<a href="/addpro" class="btn btn-primary">Add Products</a><br><br>
+
 <form th:action="@{/image/show}">
     Search: <input type="text" name="keywordp" id="keywordp" size="50" th:value="${keywordp}" required />
     &nbsp;
     <input type="submit" value="Search" />
     &nbsp;
     <input type="button" value="Clear" id="btnClearp" onclick="clearSearchp()" />
-</form>
+</form><br>
+<a href="/addpro" class="btn btn-primary">Add Products</a>
 <script type="text/javascript">
     function clearSearchp() {
         window.location = "[[@{/image/show}]]";
@@ -152,7 +318,7 @@ body {background-color: #E0EDF9;}
             </tr>
         </tbody>
     </table>
-
+</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -163,41 +329,6 @@ body {background-color: #E0EDF9;}
 	} );
 	</script>-->
 	
-	<!-- Footer -->
-	<div class="footer-clean">
-        <footer>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Delivery Service</a></li>
-                            <li><a href="#">Sale Dresses</a></li>
-                            <li><a href="#">About us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Eleonora Company</a></li>
-                            <li><a href="#">Feedback</a></li>
-                            <li><a href="#">Contact us </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Careers</h3>
-                        <ul>
-                            
-                            <li><a href="#">Our Showrooms</a></li>
-                            <li><a href="#">Benefits</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="col-lg-3 item social"><a href="http://www.facebook.com/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/"><i class="icon ion-social-twitter"></i></a><a href="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fwelcome"><i class="icon ion-social-snapchat"></i></a><a href="https://www.instagram.com/"><i class="icon ion-social-instagram"></i></a>
-                        <p class="copyright">© All right Reversed.</b><a class="text-green ml-2" href="#" target="_blank">2021 EleOnora</a></p>
-                    </div></div></div></footer></div>
-    			 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   				 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-	<!-- ./Footer -->
+
 </body>
 </html>

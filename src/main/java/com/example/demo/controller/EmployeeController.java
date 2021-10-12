@@ -27,10 +27,6 @@ public class EmployeeController {
 		return findPaginated(1, "firstName", "asc", model);		
 	}
 	
-	
-	
-	
-	
 	@GetMapping("/showNewEmployeeForm")
 	public String showNewEmployeeForm(Model model) {
 		// create model attribute to bind form data
