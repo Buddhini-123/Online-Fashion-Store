@@ -15,7 +15,10 @@ public class OrderService {
 	 @Autowired
 	    private OrderRepository repo;
 	     
-	    public List<Ordering> listAll() {
+	    public List<Ordering> listAll(String keyword) {
+	    	if (keyword != null) {
+	    		return repo.findall(keyword);
+	    	}
 	        return repo.findAll();
 	    }
 	     

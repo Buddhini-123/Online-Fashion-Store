@@ -17,236 +17,326 @@
 <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style type="text/css">
-	@font-face {
-		  font-family: 'RockSalt-Regular';
-		  src: url('/fonts/RockSalt-Regular.ttf');
-		}
-		
-	section{
-		  height: 50px;
-		  transition-duration: 0.4s;
-		  cursor: default;
-		  color:black;
-		  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	}
-	
-	section:hover{
-			background-color: white;
-			height:100px;
-			position: absolute;
-			top: 0;
-			width:100%; 
-			color:black;
-			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	}
-		
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>   
+    <style>
+  @import 'https://fonts.googleapis.com/css?family=Lato:300,400';
 
-/* NAVIGATION */
-nav {
-  width: 100%;
-  margin-top:0px;
-  background: rgb(3, 0, 0,0.0);
-  padding-right: 10px;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body, html {
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	height: 100%;
+	position: relative;
+	background-color:#B0CCF2;
 }
 
-nav ul {
-  list-style: none;
-  text-align: center;
-}
-nav ul li {
-  display: inline-block;
-}
-nav ul li .a {
-  display: block;
-  padding: 15px;
-  text-decoration: none;
-  color: #aaa;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 0 1px;
-  color:black;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-nav ul li .a,
-nav ul li .a:after,
-nav ul li .a:before {
-  transition: all .5s;
-}
-nav ul li .a:after {
-	color: black;
-}
-nav ul li .a:hover {
-  color: gray;
-}
-
-/* stroke */
-nav.stroke ul li .a,
-nav.fill ul li .a {
-  position: relative;
-}
-nav.stroke ul li .a:after,
-nav.fill ul li .a:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 0%;
-  content: '.';
-  color: transparent;
-  background: #aaa;
-  height: 1px;
-}
-nav.stroke ul li .a:hover:after {
-  width: 100%;
-}
-
-nav.fill ul li .a {
-  transition: all 2s;
-}
-
-nav.fill ul li .a:after {
-  content: '.';
-  margin: 0;
-  opacity: 0;
-}
-nav.fill ul li .a:hover {
-  color: #fff;
-  z-index: 1;
-}
-nav.fill ul li .a:hover:after {
-  z-index: -10;
-  animation: fill 1s forwards;
-  -webkit-animation: fill 1s forwards;
-  -moz-animation: fill 1s forwards;
-  opacity: 1;
-}
-
-
-
-
-/* Keyframes */
-@-webkit-keyframes fill {
-  0% {
-    width: 0%;
-    height: 1px;
-  }
-  50% {
-    width: 100%;
-    height: 1px;
-  }
-  100% {
-    width: 100%;
-    height: 100%;
-    background: #333;
-  }
-}
-		@font-face {
-		  font-family: 'RockSalt-Regular';
-		  src: url('fonts/RockSalt-Regular.ttf');
-		}
-		
-		@font-face {
-		  font-family:'Paprika-Regular';
-		  src: url('fonts/Paprika-Regular.ttf');
+ .search-container {
+		  float: right;
 		}
 		
 		
-.icon{
-	color:black;
+		.search-container button {
+		  float: right;
+		  padding: 6px 10px;
+		  margin-top: 100px;
+		  margin-right: 100px;
+		  background: #ddd;
+		  font-size: 12px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.search-container button:hover {
+		  background: #ccc;
+		}
+		
+		@media screen and (max-width: 600px) {
+		  .search-container {
+		    float: none;
+		  }
+		  .search-container button {
+		    float: none;
+		    display: block;
+		    text-align: left;
+		    width: 100%;
+		    margin: 0;
+		    padding: 14px;
+		  }
+		  
+		  
+		  ::placeholder {
+		  color: white;
+		}
 }
 
-.icon:hover{
-	color:gray;
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+a {
+	color: #fff;
+	text-decoration: none; 
+}
+
+.nav-btn {
+	width: 100%;
+	height: 35px;
+	padding-top: 4px;
+	color: #D5D3D3;
+	background-color: #212121;			 ;
+	text-align: center;
+	cursor: pointer;
+	display: none;
+}
+.nav-btn:active {
+	background-color: #090909; 
+}
+
+header {
+	height: 50px;
+	width: 100%;
+	background-color: #274C6B;
+	display: none;
+}
+
+header .logo {
+	opacity: 0.9;
+	font-size: 120%;
+	padding-top: 9px;
+	padding-left: 8px;
+	color: #fff;
+}
+header .logo span {
+	font-weight: 300;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
 .sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: white;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+	width: 250px;
+	background-color: #302F2F;
+	position: fixed;
+	top: 0px;
+	left: 0;
+	bottom: 0;
+	box-shadow: 1px 0px 10px #777;
 }
 
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  display: block;
-  transition: 0.3s;
+.sidebar nav > a {
+	font-size: 150%;
+	display: inline-block;
+	padding: 30px 0px;
+	padding-left: 30px;
+	opacity: 0.7;
+	transition: all 0.2s;
+}
+.sidebar nav > a:hover {
+	opacity: 1;
 }
 
-.sidebar a:hover {
-  color: #818181;
+.sidebar nav a span {
+	font-weight: 300;
 }
 
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 0px;
-  font-size: 36px;
-  margin-left: 50px;
+.sidebar nav ul {
+	list-style: none;
 }
 
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: rgba(255,255,255,0.2);
-  color: black;
-  padding: 10px 15px;
-  border: none;
+.sidebar nav ul li {
+	font-size: 70%;
+	padding: 19px 0;	
+	padding-left: 20px;
+	border-bottom: 0.5px solid #111;
 }
 
-.openbtn:hover {
-  background-color: white;
+.sidebar nav ul li:nth-child(1):hover {
+	background-color: #e67e22;
 }
 
+.sidebar nav ul li:nth-child(1).active {
+	background-color: #e67e22;
+}
+
+.sidebar nav ul li:nth-child(2):hover {
+	background-color: #2980b9;
+}
+
+.sidebar nav ul li:nth-child(2).active {
+	background-color: #2980b9;
+}
+
+.sidebar nav ul li:nth-child(3):hover {
+	background-color: #16a085;
+}
+
+.sidebar nav ul li:nth-child(3).active {
+	background-color: #16a085;
+}
+
+.sidebar nav ul li:nth-child(4):hover {
+	background-color: #8e44ad;
+}
+
+.sidebar nav ul li:nth-child(4).active {
+	background-color: #8e44ad;
+}
+
+.sidebar nav ul li:nth-child(5):hover {
+	background-color: #f1c40f;
+}
+
+.sidebar nav ul li:nth-child(5).active {
+	background-color: #f1c40f;
+}
+
+
+.sidebar nav ul li a {
+	color: #D7D5D5;
+}
+
+.sidebar nav ul li:hover a{
+	color: #fff;
+}
+
+.main-content {
+	background-color: #fafafa;
+	width: calc(100% - 250px);
+	height: 100%;
+	margin-left: 250px;
+	padding: 20px 30px;
+}
+.main-content .panel-wrapper {
+	margin: 20px 0;
+	box-shadow: 0px 1px 5px #777;
+}
+
+.main-content .panel-wrapper .panel-head {
+	background-color: #00A5F2;
+	color: #fff;
+	padding: 10px 10px;
+	border: 1px solid #00A5F2;
+}
+.main-content .panel-wrapper .panel-body {
+	padding: 20px 10px;
+	font-size: 80%;
+}
+
+@media only screen and (max-width: 420px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+input[type=text],
+input[type=number],
+input[type=date],
+label{
+	font-size:15px;
+	height:25px;
+	padding:2px;
+	position:relative;
+	top:10px
+}
 	</style>
-	<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>   
-</head>
-<body style="background-image:url('/images/9.jpg');background-size:cover;width:100%;height:100vh;background-repeat:none;">
-<div class="container1" >
-		<div class="outer">
-			<div class="details">
-					<section >
-					<p style="font-size: 45px;position:absolute;top:-10px;font-family:'RockSalt-Regular'" class="e">E</p><p style="position:absolute;top: -10px;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);font-size: 45px; font-family:verdana" class="le">leOnara</p>
-<h3 class="grab" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);position:absolute;top:65px;">GRAB YOUR CHOICE ...</h3>
-  <a class="icon" href="#"><i class="fas fa-sign-in-alt" style="position:absolute;right:120px;top:30px;font-size:26px;"></i></a>
-  <a class="icon" href="#"><i class="fas fa-shopping-cart" style="position:absolute;right:80px;top:30px;font-size:26px;"></i></a>
-  <div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
- <button class="openbtn" onclick="openNav()" ><i class="fas fa-bars" style="position:absolute;right:30px;top:30px;font-size:26px;"></i></button>
-  <nav class="stroke">
-  	
-    <ul style="position:absolute;top:20px;left:400px">
-      <li><a class="a" href="#">Home</a></li>
-      <li><a class="a" href="#">About</a></li>
-      <li><a class="a" href="#">Downloads</a></li>
-      <li><a class="a" href="#">More</a></li>
-      <li><a class="a" href="#">Nice staff</a></li>
-    </ul>
-  </nav>
-</section>
+	<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$('.nav-btn').on('click', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			$('.sidebar').slideToggle('fast');
 
-			</div>
+			window.onresize = function(){
+				if ($(window).width() >= 768) {
+					$('.sidebar').show();
+				} else {
+					$('.sidebar').hide();
+				}
+			};
+		});
+	});
+	
+	</script>
+</head>
+
+<body>
+<header>
+		<div class="logo">Ele<span>Onora</span></div>
+	</header>
+	<div class="nav-btn">Menu</div>
+	<div class="container">
+		
+		<div class="sidebar">
+			<nav>
+				<a href="#">Ele<span>Onora</span></a>
+				<ul>
+					<li><a href="/addpro">Item Management</a></li>
+					<li><a href="/viewe">Staff Management</a></li>
+					<li><a href="/viewo">Order Management</a></li>
+					<li><a href="">Cart Management</a></li>
+					<li><a href="/viewp">Payment Management</a></li>
+					<li><a href="/indexfeedback">Feedback Management</a></li>
+					
+				</ul>
+			</nav>
 		</div>
-	</div>
-<div class="container">
-	<h1 class="sh">Update Details</h1>
-	        <form action="#" th:action="@{/savep}" th:object="${payment}"
-            method="post" class="form1" id="example2">
+
+
+	
+	        <form action="#" th:action="@{/saveeditp}" th:object="${payment}"
+            method="post" class="form1" style="width:80%;position:absolute;top:0px;left:250px;bottom:0px;height:900px;">
+            <h1 style="font-size:30px;margin-left:20px;margin-top:30px;"><b>Payment Management</b></h1>
+            <div style="text-align:center; border:3px solid black;width:70%;margin-left:150px;margin-top:20px;">
+            <h1 style="font-size:26px;margin-left:20px;margin-top:20px;text-decoration-line: underline;">Update Details</h1>
     
                    <!-- Add hidden form field to handle update -->
 					<input type="hidden" th:field="*{pid}" />
@@ -263,62 +353,19 @@ nav.fill ul li .a:hover:after {
 		            <label>Amount</label><br>
 		            <input type="text" th:field="*{amount}" class="form control mb-4 col-6"/><br>
 	          		
-	                <label>CVV</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<label>Date</label><br>
+	                <label>CVV</label>&emsp;&emsp;&emsp;&emsp;&emsp;<label>Date</label><br>
 	             	<input type="text" th:field="*{cvv}" class="form control mb-4 col-3"/>
-             	    <input type="text" th:field="*{date}" class="form control mb-4 col-3"/><br>
+             	    <input type="date" th:field="*{date}" class="form control mb-4 col-3"/><br>
 	                
 	               
 	                
-	                <label>Expire Month</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<label>Expire Year</label><br><br>
-	                <input type="text" th:field="*{month}" class="form control mb-4 col-3"/>
-               		<input type="text" th:field="*{year}" class="form control mb-4 col-3"/><br><br><br>
-               		<button type="submit"  class="add">Update</button>
+	                <label>Expire Month</label>&emsp;&emsp;&emsp;<label>Expire Year</label><br>
+	                <input type="number" th:field="*{month}" class="form control mb-4 col-3" min=01 max=12/>
+               		<input type="number" th:field="*{year}" class="form control mb-4 col-3" min=2021 max=2030/><br><br><br>
+               		<button type="submit"  class="add" style="margin-top:-30px;margin-left:220px">Update</button>
+               		</div>
+               		
         </form>
     </div>
-    <div class="footer-clean" style="position:absolute;top:1200px;width:100%">
-        <footer >
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul class="ful">
-                            <li class="fli"><a href="#">Delivery Service</a></li>
-                            <li class="fli"><a href="#">Sale Dresses</a></li>
-                            <li class="fli"><a href="#">About us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>About</h3>
-                        <ul class="ful">
-                            <li class="fli"><a href="#">Eleonora Company</a></li>
-                            <li class="fli"><a href="#">Feedback</a></li>
-                            <li class="fli"><a href="#">Contact us </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Careers</h3>
-                        <ul class="ful">
-                            
-                            <li class="fli"><a href="#">Our Showrooms</a></li>
-                            <li class="fli"><a href="#">Benefits</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-                        <p class="copyright">© All right Reversed.</b><a class="text-green ml-2" href="#" target="_blank">2021 EleOnora</a></p>
-                    </div></div></div></footer></div>
-    			 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   				 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-<script>
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginRight = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginRight= "0";
-}
-</script>
-
 </body>
 </html>

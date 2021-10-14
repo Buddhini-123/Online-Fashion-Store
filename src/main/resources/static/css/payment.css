@@ -65,13 +65,13 @@ header{
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .add{
-	position: relative;
-	width: 100px;
-	height: 50px;
+	position: absolute;
+	width: 300px;
+	height: 30px;
 	left: 100px;
-	top: 0px;
-	background-color: #EABA82;
-	border: 0.985714px solid #EABA82;
+	top: 800px;
+	background-color: #3083F3 ;
+	border: 0.985714px solid #3083F3;
 	box-sizing: border-box;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	font-weight:600;
@@ -81,15 +81,39 @@ header{
 }
 
 .add:hover{
-	background-color: #B28D62;
+	background-color: #619FF4;
 	box-sizing: none;
 	box-shadow: none;
+	border:none;
+}
+
+.cancel{
+	position: absolute;
+	width: 300px;
+	height: 30px;
+	left: 100px;
+	top: 840px;
+	background-color: #F41E3D ;
+	border: 0.985714px solid #F41E3D;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-weight:600;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+.cancel:hover{
+	background-color: #F2455F;
+	box-sizing: none;
+	box-shadow: none;
+	border:none;
 }
 
 hr{
 	position: relative;
-	top: 80px;
-	border:5px;
+	top: 50px;
+	border:5px black;
 }
 .topic{
 	position:abslute;
@@ -100,21 +124,22 @@ hr{
 	font-size:25px;
 }
 .form1{
-	width:75%;
+	width:85%;
 	height:900px;
 	position:absolute;
 	top:200px;
-	left:180px;
-	background:rgb(0,0,0,0.4);
-	border:2px solid;
+	left:100px;
+	background:rgb(255,255,255,0.8);
 	padding: 10px;
-  	box-shadow: 8px 13px 8px rgba(0, 0, 0,0.5) ;
+  	box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.199);
 }
 .table1{
-	position: absolute;
-	width:70%;
-	left:300px;
-	top: 250px;
+	position: relative;
+	height:90%;
+	width:1500px;
+	left:10px;
+	top: 0px;
+	border:2px white;
 	/*background:gray;*/
 	color:black;
 	background: rgba(255,255,255,0.5);
@@ -124,18 +149,17 @@ hr{
 }
 .td1{
 	height:10px;
+	width:30px;
 	color:black;
 }
 .th{
 	height:50px;
+	width:30px;
 	color:white;
 }
 
-tr:nth-child(even) {
-  background-color: rgba(192,192,192,0.2);
-}
 
-tr:nth-child(odd) {
+tr {
   background-color: rgba(0,0,0,0.5);
 }
 
@@ -216,24 +240,28 @@ tr:nth-child(odd) {
 	text-align:center;
 	font-size:30px;
 }
-input[type=text], label{
+
+input[type=text],
+input[type=number],
+input[type=date]{
 	
-	position:relative;
-	left:20px;
-	top:20px;
-}
-input[type=text]{
-	background-color: rgba(255,255,255,0.7);
-	border:none;
-	height:40px;
-	box-shadow: 5px 10px 20px 5px gray inset;
+	height: 30px;
+    width: 400px;
+    border: 1px solid #B9BDC1;
+    color: #797979;
+    -moz-box-shadow: 0 2px 4px #bbb inset;
+    -webkit-box-shadow: 0 2px 4px #BBB inset;
+    box-shadow: 0 2px 4px #BBB inset;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
 	
 }
-input[type=text]:after{
-	background-color: rgba(255,255,255,0.7);
-	border:none;
-	height:40px;
-	box-shadow: 5px 10px 20px 5px #EABA82 inset;
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=date]:focus{
+	background-color: #E7E8E7;
+    outline: 0;
 	
 }
 .vl {
@@ -334,5 +362,8 @@ input[type=text]:after{
 label{
 	font-family: Material Icons;
 	font-size:18px;
-	color:white;
+	color:black;
+	text-decoration:bold;
 }
+
+

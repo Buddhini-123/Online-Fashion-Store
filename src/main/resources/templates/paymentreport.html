@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>EleOnora</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <!--<link rel="stylesheet" href="/css/style.css">-->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
-  <style>
+<meta charset="ISO-8859-1">
+<meta charset="utf-8"/>
+<title>EleOnara</title>
+<link th:href="@{/css/payment.css}" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<style>
   @import 'https://fonts.googleapis.com/css?family=Lato:300,400';
 
 * {
@@ -17,9 +24,49 @@
 }
 body, html {
 	font-family: 'Lato', sans-serif;
-	font-size: 15px;
+	font-size: 20px;
 	height: 100%;
 	position: relative;
+	background-color:#B0CCF2;
+}
+
+ .search-container {
+		  float: right;
+		}
+		
+		
+		.search-container button {
+		  float: right;
+		  padding: 6px 10px;
+		  margin-top: 100px;
+		  margin-right: 150px;
+		  background: #ddd;
+		  font-size: 12px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.search-container button:hover {
+		  background: #ccc;
+		}
+		
+		@media screen and (max-width: 600px) {
+		  .search-container {
+		    float: none;
+		  }
+		  .search-container button {
+		    float: none;
+		    display: block;
+		    text-align: left;
+		    width: 100%;
+		    margin: 0;
+		    padding: 14px;
+		  }
+		  
+		  
+		  ::placeholder {
+		  color: white;
+		}
 }
 
 .clearfix:after {
@@ -226,7 +273,7 @@ header .logo span {
 	}
 }
 	</style>
-		<script type="text/javascript">
+	<script type="text/javascript">
 	
 	$(document).ready(function() {
 		$('.nav-btn').on('click', function(event) {
@@ -245,8 +292,6 @@ header .logo span {
 	});
 	
 	</script>
-  
-
 </head>
 <body>
 <header>
@@ -257,9 +302,9 @@ header .logo span {
 		
 		<div class="sidebar">
 			<nav>
-				<a href="/">Ele<span>Onora</span></a>
+				<a href="#">Ele<span>Onora</span></a>
 				<ul>
-					<li><a href="/image/show">Item Management</a></li>
+					<li><a href="/addpro">Item Management</a></li>
 					<li><a href="/viewe">Staff Management</a></li>
 					<li><a href="/viewo">Order Management</a></li>
 					<li><a href="">Cart Management</a></li>
@@ -270,65 +315,66 @@ header .logo span {
 			</nav>
 		</div>
 
+<div class="form1" style="width:80%;position:absolute;top:0px;left:250px;height:700px">
+<h1 style="font-size:30px;margin-left:20px;margin-top:30px;"><b>Payment Management</b></h1>
 
-<div class="main-content">
-		
 	
-<h1 class="text-center">Ladies Product Items
-<a href="/" class="btn btn-danger text-right">Go Home</a>
-<a href="/generateproduct" class="btn btn-success">Export Product List</a>
-
-</h1>
-
-
-<form th:action="@{/image/show}">
-    Search: <input type="text" name="keywordp" id="keywordp" size="50" th:value="${keywordp}" required />
-    &nbsp;
-    <input type="submit" value="Search" />
-    &nbsp;
-    <input type="button" value="Clear" id="btnClearp" onclick="clearSearchp()" />
-</form><br>
-<a href="/addpro" class="btn btn-primary">Add Products</a>
-<script type="text/javascript">
-    function clearSearchp() {
-        window.location = "[[@{/image/show}]]";
-    }
-</script><br>
-<table id="example" class="table table-striped table-bordered text-center">
+	
+	<div class="search-container">
+    	<form action="#" th:action="@{/payments/export/pdf}" th:object="${payment}" method="get">
+      		<input type="date"  placeholder="StartDate" name="startdate" th:value="${startdate}" required style="padding: 4px;margin-top: 15px;margin-right:0px;font-size: 17px;height:26px;width:30%">
+      		<input type="date"  placeholder="EndDate"name="enddate" th:value="${enddate}" required style="padding: 4px;margin-top: 15px;margin-right:0px;font-size: 17px;height:26px;width:30%">
+      		<button type="submit" value="search" style="height:26px;margin-top:15px;margin-right:50px;">Download Report</button>
+      		
+    	</form>
+  	</div>
+  	<br>
+  	<br>
+  	
+<div style="overflow-y:auto; height:50%;width:100%;top:30px;position:relative;">
+    <table border="1" class="table1" >
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Action</th>
+                <th class="th">Payment ID</th>
+                <th class="th">Bank</th>
+                <th class="th">Amount(Rs.)</th>
+                <th class="th">Name On Card</th>
+                <th class="th">CVV</th>
+                <th class="th">Date</th>
+                <th class="th">Month</th>
+                <th class="th">Year</th>
+                <th class="th">Account Number</th>
+                <th class="th">Action</th>
             </tr>
         </thead>
-        <tbody th:with="count=0">
-        <tr th:each = "product, hh : ${images}">
-                <td th:text="${product.name}"></td>
-                <td><img th:src="@{${'/image/display/'+ product.id}}" 
-                class="card img-fluid" style="width:100px" alt=""/></td>
-                <td th:text="${product.description}"></td>
-                <td th:text="${product.price}"></td>
-                <td th:text="${product.quantity}"></td>
-               <td><a th:href="@{/showFormForUpdate/{id}(id=${product.id})}" class="btn btn-primary">Update</a>
-               <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
+        <tbody>
+            <tr th:each="payment : ${monthlylistPayments}">
+                <td class="td1" th:text="${payment.pid}">Payment ID</td>
+                <td class="td1" th:text="${payment.bank}">Bank</td>
+                <td class="td1" th:text="${payment.amount}">Amount(Rs.)</td>
+                <td class="td1" th:text="${payment.name}">Name On Card</td>
+                <td class="td1" th:text="${payment.cvv}">CVV</td>
+                <td class="td1" th:text="${payment.date}">Date</td>
+                <td class="td1" th:text="${payment.month}">Month</td>
+                <td class="td1" th:text="${payment.year}">Year</td>
+                <td class="td1" th:text="${payment.account}">Account Number</td>
+                <td class="td1">
+                    <a th:href="@{'/editp/' + ${payment.pid}}" class="btn btn-primary btn-sm mb-1">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deletep/' + ${payment.pid}}" class="btn btn-danger btn-sm mb-1">Delete</a>
+                </td>
             </tr>
         </tbody>
     </table>
+    </div>
+</div>   
 </div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
-	<!--  <script type="text/javascript">
-	$(document).ready(function() {
-	    $('#example').DataTable();
-	} );
-	</script>-->
-	
 
+<script type="text/javascript">
+	function clearFilter(){
+		window.location = '/viewp';
+	}
+</script>  
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,14 @@ public class PaymentService {
     	}
 		return repo.findAll();
 	}
+	
+	public List<Payment> listAllByDate(Date startdate,Date enddate){
+		if ((startdate != null)&(enddate != null)) {
+			return repo.findbydate(startdate, enddate);
+		}
+		return repo.findAll();
+	}
+	
 	
 	 public void save(Payment payment) {
         repo.save(payment);

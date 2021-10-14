@@ -36,7 +36,7 @@
 			top: 0;
 			width: 100%;
 			height: 100vh;
-			background: rgb(255, 255, 255,0.2);
+			background:#3BB9FF;
 		}
 
 
@@ -140,6 +140,10 @@ nav.fill ul li .a:hover:after {
   opacity: 1;
 }
 
+label{
+ color : white;
+ font-size:20px;
+}
 
 
 
@@ -313,7 +317,7 @@ nav.fill ul li .a:hover:after {
 
 	</style>
 </head>
-<body style = "background-image:url('/images/oback.jpg');background-size:cover;width:100%;height:100vh;background-repeat:none;">
+<body style="height:100%;">
 <div class="container1">
 		<div class="outer">
 			<div class="details">
@@ -360,7 +364,7 @@ nav.fill ul li .a:hover:after {
 <br>
 <br>
     <div >
-        <h1 class=newo>Create New Order</h1>
+        <h1 class=newo>Add Shipping Details</h1>
         <br />
         <form action="#" th:action="@{/saveo}" th:object="${ordering}"
             method="post" class="form2">
@@ -369,13 +373,13 @@ nav.fill ul li .a:hover:after {
            
                    
               <label> Zip Code:</label><br>
-                    <input type="text" th:field="*{zip}" /><br>
+                    <input type="text" th:field="*{zip}" required/><br>
                
                     <label>Telephone Number:</label><br>
                    <input type="text" th:field="*{tel}" /><br>
                
                     <label>Address:</label><br>
-                    <input type="text" th:field="*{address}" /><br>
+                    <input type="text" th:field="*{address}" required/><br>
                
                      <label>Special note:</label><br>
                    <input type="text" th:field="*{special}" /><br>

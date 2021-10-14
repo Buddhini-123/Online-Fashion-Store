@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,10 +22,10 @@ public class OrderController {
 	 private OrderService service;
 	 
 	 @RequestMapping("/viewo")
-	 public String viewHomePage(Model model) {
-	     List<Ordering> listOrders = service.listAll();
+	 public String viewHomePage(Model model,@Param("keyword")String keyword) {
+	     List<Ordering> listOrders = service.listAll(keyword);
 	     model.addAttribute("listOrders", listOrders);
-	      
+	     model.addAttribute("keyword", keyword); 
 	     return "vieworderlist";
 	 }
 	 
@@ -41,6 +42,12 @@ public class OrderController {
 		 service.save(ordering);
 		 
 		 return "redirect:/newp";
+	 }
+	 @RequestMapping(value = "/saveedito", method = RequestMethod.POST )
+	 public String saveEditOrder(@ModelAttribute("ordering") Ordering ordering) {
+		 service.save(ordering);
+		 
+		 return "redirect:/viewo";
 	 }
 	 
 	 @RequestMapping("/edito/{oid}")

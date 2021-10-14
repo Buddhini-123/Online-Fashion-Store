@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+ 
 <head>
-<meta charset="ISO-8859-1">
-<title>Registration and Login App</title>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet"
+	
+	<link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
 	crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-		
-</head>
+	
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 
-<style>
+	
 
-
-section {
+ <style>
+ 
+ section {
   height: 50px;
   transition-duration: 0.4s;
   cursor: default;
@@ -124,6 +120,9 @@ nav.fill ul li .a:hover:after {
   -moz-animation: fill 1s forwards;
   opacity: 1;
 }
+
+
+
 
 
 
@@ -291,10 +290,9 @@ nav.fill ul li .a:hover:after {
 .openbtn:hover {
   background-color: white;
 }
-
-	body {background-color: #F4C8C8;}
-	
-	.footer-clean {
+ 
+ 
+.footer-clean {
   padding:50px 0;
   background-color:#282d32;
   color:#f0f9ff;
@@ -379,61 +377,19 @@ nav.fill ul li .a:hover:after {
   font-size:13px;
   opacity:0.6;
 }
-
-.e{
-	position: absolute;
-	left: 25px;
-	top: 10px;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 79px;
-	line-height: 100px;
-}
-.le{
-	position: absolute;
-	left: 70px;
-	top: 10px;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 79px;
-	line-height: 100px;
-}
+   				 
+   				 </style>
 
 
-.grab{
-	position: absolute;
-	width: 329px;
-	height: 36px;
-	left: 115px;
-	top: 106px;
-	font-family: Material Icons;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 25px;
-	color: #131312;
-	box-sizing: border-box;
-	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-
-.containerlog{
-	border-radius: 5px;
-	margin-left:100px;
-  padding: 20px;
-}
-
-
-</style>
-
-<body>
+</head>
+<body style="background-color:  #e6dbc7 ; " >
 
 <div class="container1">
 		<div class="outer">
 			<div class="details">
 					<section >
-					<p style="font-size: 45px;position:absolute;top:-10px;font-family:'RockSalt-Regular'" class="e">E</p><p style="position:absolute;top: -10px;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);font-size: 45px; font-family:verdana" class="le">leOnara</p>
-<h3 class="grab" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);position:absolute;top:65px;">GRAB YOUR CHOICE ...</h3>
+					<p style="font-size: 45px;position:absolute;top:-10px;font-family:'RockSalt-Regular'" class="e">E</p><p style="position:absolute;top: -10px;left: 40px;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);font-size: 45px; font-family:verdana" class="le">leOnara</p>
+<h3 class="grab" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);position:absolute;top:65px;left:60px;">GRAB YOUR CHOICE ...</h3>
   <a class="icon" href="/login"><i class="fas fa-sign-in-alt" style="position:absolute;right:120px;top:30px;font-size:26px;"></i></a>
   <a class="icon" href="#"><i class="fas fa-shopping-cart" style="position:absolute;right:80px;top:30px;font-size:26px;"></i></a>
   <div id="mySidebar" class="sidebar">
@@ -459,62 +415,59 @@ nav.fill ul li .a:hover:after {
 			</div>
 		</div>
 	</div>
-	<br><br><br><br><br><br>
 
+
+
+<div>
+<br> <br> 
+	<h2 style="background-color: #f1cc89 " align="center" >EleOnara -Shopping Cart</h2>
 	
+	<br> 
 	
-	
+	<div align = "center" >		   
+		     <a style="font-family:verdana; font-weight: bold;  font-size: 25px; font-color:black;" th:href="@{'/new'}">Add New</a>     
+	    </div>
 	<br>
-	<div class = "containerlog">
-		<div class = "row">
-			<div class = "col-md-6 col-md-offset-3">
-				
-				<h1> User Login Page </h1>
-				<form th:action="@{/login}" method="post">
-					
-					<!-- error message -->
-					<div th:if="${param.error}">
-						<div class="alert alert-danger">Invalid username or
-							password.</div>
-					</div>
-				
-					<!-- logout message -->
-					<div th:if="${param.logout}">
-						<div class="alert alert-info">You have been logged out.</div>
-					</div>
-					
-					<div class = "form-group">
-						<label for ="username"> Username </label> :
-						<input type="text" class = "form-control" id ="username" name = "username"
-						placeholder="Enter Email ID" autofocus="autofocus" required>
-					</div>
-					
-					<div class="form-group">
-						<label for="password">Password</label>: <input type="password"
-							id="password" name="password" class="form-control"
-							placeholder="Enter Password" required/>
-					</div>
-					
-					<div class="form-group">
-						<div class="row">
-							<div class="col-sm-6 col-sm-offset-3">
-								 <input type="submit" name="login-submit" id="login-submit"
-									class="form-control btn btn-primary"  value="Log In" />
-								<!-- <button class="form-control btn btn-primary"><a style="text-decoration:none;color:white;" href="@{/showFormUpdate/{username}(username=${user.username})}">Log In</a></button>-->
-							</div>
-						</div>
-					</div>
-				</form>
-				<div class="form-group">
-						<span>New user? <a href="/" th:href="@{/registration}">Register
-								here</a></span>
-				</div>
-			</div>
-		</div>
+	<center>
+	<a  th:href="@{'gnt'}"><button type="submit" class="btn1"><i class="fa fa-download"> </i> <span>Cart Report</span></a></button>
+	<br><br>
+	<div class="col-sm-5" align = "center">
+    <div class="panel-body" align = "center" >
+    <table class="table" style="outline: 1px groove black">
+  <thead class="thead-dark">
+    <tr>
+      		<th>Item ID</th>
+            <th>Details</th>
+            <th>Price</th>
+            <th>Item Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+   	</tr>
+  </thead>
+  <tbody>
+      <tr  th:each="shopping : ${listshopping }">
+		<td th:text="${shopping.id}">Item ID</td>
+		<td th:text="${shopping.details}">Details</td>
+		<td th:text="${shopping.price}">Price</td>	
+		<td th:text="${shopping.itemname}">ItemName</td>			
+		<td>
+			<a th:href="@{'/edit/' + ${shopping.id}}" style="color: blue ;" >Edit</a>
+		</td>							    
+		<td>
+			<a th:href="@{'/delete/' + ${shopping.id}}" style="color: #b4130c ;">Delete</a>
+		</td>		    
+		</tr> 
+   
+  </tbody>
+</table>
+
+                    
+                 </div>
+            </div> 	
 	</div>
+	<br><br><br>
 	
-	<br><br><br><br><br><br><br><br>
-	<div class="footer-clean">
+<div class="footer-clean">
         <footer>
             <div class="container">
                 <div class="row justify-content-center">
@@ -542,10 +495,11 @@ nav.fill ul li .a:hover:after {
                             <li><a href="#">Benefits</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 item social"><a href="http://www.facebook.com/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/"><i class="icon ion-social-twitter"></i></a><a href="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fwelcome"><i class="icon ion-social-snapchat"></i></a><a href="https://www.instagram.com/"><i class="icon ion-social-instagram"></i></a>
-                        <p class="copyright">� All right Reversed.</b><a class="text-green ml-2" href="#" target="_blank">2021 EleOnora</a></p>
+                   <div class="col-lg-3 item social"><a href="http://www.facebook.com/"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/"><i class="icon ion-social-twitter"></i></a><a href="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fwelcome"><i class="icon ion-social-snapchat"></i></a><a href="https://www.instagram.com/"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">©️ All right Reversed.</b><a class="text-green ml-2" href="#" target="_blank">2021 EleOnora</a></p>
+                    </div></div></div></footer></div>
     			 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    				 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-	
+   				 
 </body>
 </html>

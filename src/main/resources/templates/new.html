@@ -3,8 +3,8 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<script defer src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="http://localhost:8060/css/main.css">
+
 
 <meta charset="ISO-8859-1">
 
@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<img src="images/yasith.png" align="left" height="190" width="190">
+<img src="http://localhost:8060/images/yasith.png" align="left" height="190" width="190">
 
 <div class="section">
   
@@ -24,8 +24,8 @@
 
   <h1><b>Welcome ! Add Your Feedback</b></h1>
 
-    <video class="bgvid" autoplay="autoplay" src="images/117.mp4" muted preload="auto" loop></video>
-    <video class="bgvid" autoplay="autoplay" src="images/57.mp4" muted preload="auto" loop></video>
+   <video class="bgvid" autoplay="autoplay" src="http://localhost:8060/images/117.mp4" muted preload="auto" loop></video>
+    <video class="bgvid" autoplay="autoplay" src="http://localhost:8060/images/57.mp4" muted preload="auto" loop></video>  
   		 
 <div id="error"></div>
 <div class="inner-continer"><div class="box">
@@ -52,7 +52,34 @@
             <tr>
             <td colspan="2"><button type="submit" class="btn2">Post</button>
           </td></tr></form></div></div></div></div>
+          
+          
+          
+<script type="text/javascript">
 
+
+const feedback = document.getElementById('feedback')
+const helpfull = document.getElementById('helpfull')
+const form = document.getElementById('form')
+const errorElement = document.getElementById('error')
+
+form.addEventListener('submit',(e)=>{
+	
+	let messages =[]
+	if(feedback.value === ''|| name.value == null){
+		
+		messages.push('Feedback is required')
+	}
+	
+	if(message.length > 0 ){
+		e.preventDefault()
+		errorElement.innerText = message.join(', ')
+	}
+	
+});
+
+
+</script>
   
 </body>
 </html>
