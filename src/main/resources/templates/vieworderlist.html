@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Product Manager</title>
+
+<div align="center">
+    <h1 class="newo">Order List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Zip Code</th>
+                <th>Telephone Number</th>
+                <th>Address</th>
+                <th>Special Notes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ordering : ${listOrders}">
+                <td th:text="${ordering.oid}">Product ID</td>
+                <td th:text="${ordering.zip}">Name</td>
+                <td th:text="${ordering.tel}">Brand</td>
+                <td th:text="${ordering.address}">Made in</td>
+                <td th:text="${ordering.special}">Price</td>
+                <td>
+                    <a th:href="@{'/edito/' + ${ordering.oid}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deleteo/' + ${ordering.oid}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

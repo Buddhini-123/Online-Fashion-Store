@@ -1,0 +1,369 @@
+@charset "ISO-8859-1";
+.back{
+	position: absolute;
+	width: 1200px;
+	height: 1000px;
+	top:-100px;
+	left:100px;
+	
+}
+header{
+	position: absolute;
+	
+	top:-40px;
+	left:0px;
+}
+.e{
+	position: absolute;
+	left: 25px;
+	top: 10px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 79px;
+	line-height: 100px;
+}
+.le{
+	position: absolute;
+	left: 70px;
+	top: 10px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 79px;
+	line-height: 100px;
+}
+
+
+.grab{
+	position: absolute;
+	width: 329px;
+	height: 36px;
+	left: 115px;
+	top: 106px;
+	font-family: Material Icons;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 25px;
+	color: #131312;
+	box-sizing: border-box;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sh{
+	position: absolute;
+	width: 529.92px;
+	height: 57.45px;
+	left: 600px;
+	top: 100px;
+	font-family: Material Icons;
+	font-style: normal;
+	font-weight:600;
+	font-size: 30px;
+	line-height: 51px;
+	color: #000000;
+	mix-blend-mode: hard-light;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.add{
+	position: absolute;
+	width: 300px;
+	height: 30px;
+	left: 100px;
+	top: 800px;
+	background-color: #3083F3 ;
+	border: 0.985714px solid #3083F3;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-weight:600;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+.add:hover{
+	background-color: #619FF4;
+	box-sizing: none;
+	box-shadow: none;
+	border:none;
+}
+
+.cancel{
+	position: absolute;
+	width: 300px;
+	height: 30px;
+	left: 100px;
+	top: 840px;
+	background-color: #F41E3D ;
+	border: 0.985714px solid #F41E3D;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-weight:600;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+.cancel:hover{
+	background-color: #F2455F;
+	box-sizing: none;
+	box-shadow: none;
+	border:none;
+}
+
+hr{
+	position: relative;
+	top: 50px;
+	border:5px black;
+}
+.topic{
+	position:abslute;
+	top:50px;
+	left:40px;
+	font-family:serif;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-size:25px;
+}
+.form1{
+	width:85%;
+	height:900px;
+	position:absolute;
+	top:200px;
+	left:100px;
+	background:rgb(255,255,255,0.8);
+	padding: 10px;
+  	box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.199);
+}
+.table1{
+	position: relative;
+	height:90%;
+	width:1500px;
+	left:10px;
+	top: 0px;
+	border:2px white;
+	/*background:gray;*/
+	color:black;
+	background: rgba(255,255,255,0.5);
+	font-family:verdana;
+	text-align:center;
+	font-size:14px;
+}
+.td1{
+	height:10px;
+	width:30px;
+	color:black;
+}
+.th{
+	height:50px;
+	width:30px;
+	color:white;
+}
+
+
+tr {
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+.ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.li {
+    font-size: 15px;
+    width: 15em;
+    height: 3em;
+    color: white;
+    border-left: 0.11em solid;
+    position: relative;
+    margin-top: 1.5em;
+    margin-bottom:1.5em;
+    cursor: pointer;
+    left:30px;
+    top:90px;
+    opacity: 0.6;
+}
+
+.li::before,
+.li::after
+ {
+    content: '';
+    position: absolute;
+    width: inherit;
+    border-left: inherit;
+    z-index: -1;
+}
+
+.li::before {
+    height: 80%;
+    top: 10%;
+    left: calc(-0.15em - 0.08em * 2);
+    filter: brightness(0.8);
+}
+
+.li::after {
+    height: 60%;
+    top: 20%;
+    left: calc(-0.15em * 2 - 0.08em * 3);
+    filter: brightness(0.6);
+}
+
+.li span {
+    position: relative;
+    height: 120%;
+    top: -10%;
+    box-sizing: border-box;
+    border: 0.0001em solid;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+    transition: 0.3s;
+}
+
+.li:hover span {
+    transform: translateX(0.15em);
+}
+
+.topic{
+	position:absolute;
+	top:300px;
+	left:500px;
+}
+
+.dash{
+	position:absolute;
+	top:50px;
+	text-align:center;
+	font-size:30px;
+}
+
+input[type=text],
+input[type=number],
+input[type=date]{
+	
+	height: 30px;
+    width: 400px;
+    border: 1px solid #B9BDC1;
+    color: #797979;
+    -moz-box-shadow: 0 2px 4px #bbb inset;
+    -webkit-box-shadow: 0 2px 4px #BBB inset;
+    box-shadow: 0 2px 4px #BBB inset;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+	
+}
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=date]:focus{
+	background-color: #E7E8E7;
+    outline: 0;
+	
+}
+.vl {
+  border-left: 3px solid silver;
+  height: 500px;
+  position: absolute;
+  left: 60%;
+  margin-left: -3px;
+  top: 0;
+}
+
+
+.footer-clean {
+  padding:50px 0;
+  background-color:#282d32;
+  color:#f0f9ff;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-clean .ful {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-clean .ful a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean .ful a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+label{
+	font-family: Material Icons;
+	font-size:18px;
+	color:black;
+	text-decoration:bold;
+}
+
+
